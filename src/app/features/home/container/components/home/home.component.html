@@ -7,6 +7,26 @@
         </ion-toolbar>
       </ion-header>
     <ion-content>
+
+    <ion-card>
+      <ion-item>
+        <ion-icon name="pin" slot="start"></ion-icon>
+        <ion-label>Hi {{currentUser.firstName}}!</ion-label>
+        <ion-button fill="outline" slot="end">View</ion-button>
+      </ion-item>
+
+      <ion-card-content>
+          <p>Vous êtes Log dans la nouvelle Application Skills</p>
+          <h3>Tout les utilisateurs sont:</h3>
+          <ul>
+              <li *ngFor="let user of users">
+                  {{user.username}} ({{user.firstName}} {{user.lastName}})
+                  - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
+              </li>
+          </ul>
+      </ion-card-content>
+    </ion-card>
+
     <ion-card>
         <ion-card-header>
           <ion-card-subtitle>Profil</ion-card-subtitle>
@@ -16,25 +36,6 @@
         <ion-card-content>
         <ion-icon name="pin" slot="start"></ion-icon>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam officiis, labore accusamus incidunt eaque sit quis consequuntur qui accusantium officia deleniti, minus perspiciatis animi hic maiores est ullam laborum eligendi!
-        </ion-card-content>
-      </ion-card>
-
-      <ion-card>
-        <ion-item>
-          <ion-icon name="pin" slot="start"></ion-icon>
-          <ion-label>Hi {{currentUser.firstName}}!</ion-label>
-          <ion-button fill="outline" slot="end">View</ion-button>
-        </ion-item>
-
-        <ion-card-content>
-            <p>Vous êtes Log dans la nouvelle Application Skills</p>
-            <h3>Tout les utilisateurs sont:</h3>
-            <ul>
-                <li *ngFor="let user of users">
-                    {{user.username}} ({{user.firstName}} {{user.lastName}})
-                    - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
-                </li>
-            </ul>
         </ion-card-content>
       </ion-card>
 
