@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { AlertService } from '../../services/alert/alert.service';
 
@@ -12,17 +13,27 @@ export class AlertComponent implements OnInit, OnDestroy {
   private subscription!: Subscription;
   message: any;
 
-  constructor(private _alertService: AlertService) { }
+
+  constructor(public toastController: ToastController, private _alertService: AlertService) { }
 
   ngOnInit(): void {
     this.subscription = this._alertService.getAlert()
-      .subscribe((message: { type: any; cssClass: string; }) => {
+      .subscribe(async (message: { type: any; cssClass: string; }) => {
         switch (message && message.type) {
           case 'success':
             message.cssClass = 'alert alert-success';
             break;
           case 'error':
-            message.cssClass = 'alert alert-danger';
+            const toast = await this.toastController.create({
+              header: 'Alert',
+              message: 'Username or password is incorrect',
+              position: 'top',
+              duration: 3000,
+              color: "warning",
+            });
+            toast.present();
+
+          // message.cssClass = 'alert alert-danger';
             break;
         }
 
