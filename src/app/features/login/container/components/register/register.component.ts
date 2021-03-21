@@ -17,6 +17,7 @@ export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
   loading = false;
   submitted = false;
+
   constructor(
     private _formBuilder: FormBuilder,
     private _router: Router,

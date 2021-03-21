@@ -13,16 +13,18 @@
 
         <ion-item>
             <ion-label position="floating" for="username">Nom d'utilisateur :</ion-label>
-            <ion-input type="text" formControlName="username" ngDefaultControl [ngClass]="{ 'is-invalid': submitted && f.username.errors }" ></ion-input>
+            <ion-input type="text" formControlName="username" ngDefaultControl ></ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label position="floating" for="password">Password :</ion-label>
-            <ion-input type="password" formControlName="password" ngDefaultControl  [ngClass]="{ 'is-invalid': submitted && f.password.errors }" ></ion-input>
+            <ion-input type="password" formControlName="password" ngDefaultControl ></ion-input>
         </ion-item>
 
-        <ion-button type="submit" [disabled]="!loginForm.valid">Submit</ion-button>
-        <ion-button slot="end"(click)="register()">Register</ion-button>
+        <ion-item>
+            <ion-button color="secondary" (click)="register()">Register</ion-button>
+            <ion-button  type="submit" [disabled]="!loginForm.valid">Submit</ion-button>
+        </ion-item>
 
 </form>
 </ion-content>
