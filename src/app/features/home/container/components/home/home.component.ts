@@ -43,6 +43,7 @@ export class HomeComponent implements OnInit {
   logout() {
     this._authenticationService.logout();
     this._router.navigate([ '/login' ]);
+    location.reload();
   }
 
 }
