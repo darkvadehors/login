@@ -12,19 +12,22 @@
       <ion-item>
         <ion-icon name="pin" slot="start"></ion-icon>
         <ion-label>Hi {{currentUser.firstName}}!</ion-label>
-        <ion-button fill="outline" slot="end">View</ion-button>
       </ion-item>
 
       <ion-card-content>
-          <p>Vous êtes Log dans la nouvelle Application Skills</p>
-          <h3>Tout les utilisateurs sont:</h3>
-          <ul>
-              <li *ngFor="let user of users">
-                  {{user.username}} ({{user.firstName}} {{user.lastName}})
-                  - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
-              </li>
-          </ul>
+        <ion-item>Vous êtes Log dans la nouvelle Application Skills</ion-item>
+        <ion-list-header>
+          <ion-label>Tout les utilisateurs sont:</ion-label>
+        </ion-list-header>
+        <ion-list>
+          <!-- List of Text Items -->
+          <ion-item *ngFor="let user of users"><ion-label>
+            - {{user.username}} ({{user.firstName}} {{user.lastName}})
+            <ion-button slot="end"  fill="icon-only" size="small" (click)="deleteUser(user.id)"><ion-icon color="danger" name="trash-outline"></ion-icon></ion-button>
+            </ion-label></ion-item>
+        </ion-list>
       </ion-card-content>
+
     </ion-card>
 
     <ion-card>
