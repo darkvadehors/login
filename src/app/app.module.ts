@@ -3,24 +3,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
+import { IonicModule } from '@ionic/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AlertComponent } from './features/login/container/components/alert/alert.component';
-import { LoginComponent } from './features/login/container/components/login/login.component';
 import { RegisterComponent } from './features/login/container/components/register/register.component';
-import { HomeComponent } from './features/home/container/components/home/home.component';
 import { JwtInterceptor } from './features/login/container/interceptor/jwt/jwt.interceptor';
 import { ErrorInterceptor } from './features/login/container/interceptor/error/error.interceptor';
 import { fakeBackendProvider } from './features/login/container/services/backEndTest/back-endtest';
+import { LoginModule } from './features/login/login.modules';
+import { HomeModule } from './features/home/home.modules';
 
 @NgModule({
   declarations: [
     AppComponent,
     AlertComponent,
-    LoginComponent,
     RegisterComponent,
-    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,6 +27,9 @@ import { fakeBackendProvider } from './features/login/container/services/backEnd
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    LoginModule,
+    HomeModule,
+    IonicModule.forRoot(),
   ],
   providers: [
     FormBuilder,

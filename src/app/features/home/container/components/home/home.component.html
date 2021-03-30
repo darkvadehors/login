@@ -1,4 +1,79 @@
-<h1>Hi {{currentUser.firstName}}!</h1>
+    <ion-header translucent="true">
+        <ion-toolbar>
+          <ion-buttons collapse="true" slot="end">
+            <ion-button><a (click)="logout()">Déconnexion</a></ion-button>
+          </ion-buttons>
+          <ion-title>Home</ion-title>
+        </ion-toolbar>
+      </ion-header>
+    <ion-content>
+
+    <ion-card>
+      <ion-item>
+        <ion-icon name="pin" slot="start"></ion-icon>
+        <ion-label>Hi {{currentUser.firstName}}!</ion-label>
+      </ion-item>
+
+      <ion-card-content>
+        <ion-item>Vous êtes dans la nouvelle Application Skills</ion-item>
+        <ion-list-header>
+          <ion-label>Tout les utilisateurs sont:</ion-label>
+        </ion-list-header>
+        <ion-list>
+          <!-- List of Text Items -->
+          <ion-item *ngFor="let user of users"><ion-label>
+            - {{user.username}} ({{user.firstName}} {{user.lastName}})
+            <ion-button slot="end"  fill="icon-only" size="small" (click)="deleteUser(user.id)"><ion-icon color="danger" name="trash-outline"></ion-icon></ion-button>
+            </ion-label></ion-item>
+        </ion-list>
+      </ion-card-content>
+
+    </ion-card>
+
+    <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Profil</ion-card-subtitle>
+          <ion-card-title>Information Privées</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+        <ion-icon name="pin" slot="start"></ion-icon>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam officiis, labore accusamus incidunt eaque sit quis consequuntur qui accusantium officia deleniti, minus perspiciatis animi hic maiores est ullam laborum eligendi!
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        <ion-item href="#" class="ion-activated">
+          <ion-icon name="wifi" slot="start"></ion-icon>
+          <ion-label>Card Link Item 1 activated</ion-label>
+        </ion-item>
+
+        <ion-item href="#">
+          <ion-icon name="wine" slot="start"></ion-icon>
+          <ion-label>Card Link Item 2</ion-label>
+        </ion-item>
+
+        <ion-item class="ion-activated">
+          <ion-icon name="warning" slot="start"></ion-icon>
+          <ion-label>Card Button Item 1 activated</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="walk" slot="start"></ion-icon>
+          <ion-label>Card Button Item 2</ion-label>
+        </ion-item>
+      </ion-card>
+
+</ion-content>
+<!-- nav -->
+<!-- <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/">Home</a>
+        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+    </div>
+  </nav> -->
+
+<!-- <h1>Hi {{currentUser.firstName}}!</h1>
 <p>Vous êtes Log dans la nouvelle Application Skills</p>
 <h3>Tout les utilisateurs sont:</h3>
 <ul>
@@ -6,4 +81,4 @@
         {{user.username}} ({{user.firstName}} {{user.lastName}})
         - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
     </li>
-</ul>
+</ul> -->

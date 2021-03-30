@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 
 import { User } from '../../../../login/container/model/user';
@@ -16,6 +17,7 @@ export class HomeComponent implements OnInit {
   users: any[] = [];
 
   constructor(
+    private _router: Router,
     private _authenticationService: AuthenticationService,
     private _userService: UserService
   ) {
@@ -37,4 +39,11 @@ export class HomeComponent implements OnInit {
       .pipe(first())
       .subscribe(users => { this.users = users });
   }
+
+  logout() {
+    this._authenticationService.logout();
+    this._router.navigate([ '/login' ]);
+    location.reload();
+  }
+
 }
