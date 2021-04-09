@@ -8,14 +8,24 @@ export class UserService {
   constructor(private _http: HttpClient) { }
 
   getAll() {
-    return this._http.get<User[]>(`./users`);
+    // API rest => function get `http://localhost:3000/user` return all users
+    return this._http.get<User[]>(`./user`);
   }
 
   register(user: User) {
-    return this._http.post(`./users/register`, user);
+    // return this._http.post(`./auth/signup`, user);
+
+    const {
+      firstName,
+      lastName,
+      password,
+      username
+    } = user
+
+    return this._http.post(`http://localhost:3000/auth/signup`, { email: username, password: password });
   }
 
   delete(id: number) {
-    return this._http.delete(`./users/${id}`);
+    return this._http.delete(`./user/${id}`);
   }
 }
